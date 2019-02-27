@@ -7,23 +7,72 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <ul>
-          <li>Home</li>
-          <li>Dados</li>
-          <li>Filtrar</li>
-        </ul>
-        <input id="src-bar" type="text" placeholder="Informe o nome do Pokemon">
-        <button id="src-btn"><i class="fas fa-search"></i></button>
-      </nav>
-    </header>
+    
     <main>
-      <section>
-        <h1>Resultado type</h1>
-        <ul id="show-all-cards"></ul>
-      </section>
-      <section id="search-result"></section>
+
+      <nav class="topnav" id="myTopnav">
+        <a href="#">Home</a>
+        <a href="#">Dados</a>
+        <div class="dropdown">
+          <button class="dropdown-btn">Ordem Alfabética
+            <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">A</a>
+            <a href="#">B</a>
+            <a href="#">C</a>
+            <a href="#">D</a>
+            <a href="#">E</a>
+            <a href="#">F</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">Tipo
+            <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Normal</a>
+            <a href="#">Fogo</a>
+            <a href="#">Água</a>
+            <a href="#">Elétrico</a>
+            <a href="#">Grama</a>
+            <a href="#">Gelo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">Forte Contra
+            <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Normal</a>
+            <a href="#">Fogo</a>
+            <a href="#">Água</a>
+            <a href="#">Elétrico</a>
+            <a href="#">Grama</a>
+            <a href="#">Gelo</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">Fraco Contra
+            <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#">Normal</a>
+            <a href="#">Fogo</a>
+            <a href="#">Água</a>
+            <a href="#">Elétrico</a>
+            <a href="#">Grama</a>
+            <a href="#">Gelo</a>
+          </div>
+        </div>
+        <div class="search-container">
+          <form>
+            <input type="text" placeholder="Search" name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+      </nav>
+  
     </main>
 
 
