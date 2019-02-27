@@ -1,6 +1,6 @@
-window.onload = function() {
-  showAllCards();
-};
+// window.onload = function() {
+//   showAllCards();
+// };
 
 const resultAll = document.querySelector("#show-all-cards");
 const searchResul = document.querySelector("#search-result");
@@ -14,7 +14,8 @@ function getPokemons() {
 
 
 function showAllCards() {
-  resultAll.innerHTML = `${getPokemons().map((pokemon) => `
+  resultAll.innerHTML = `
+  ${getPokemons().map((pokemon) => `
     <div class="pokemon-card">
       <img src="${pokemon["img"]}"></img>
     </div>
@@ -32,8 +33,9 @@ function showAllCards() {
         <li>Spawns time: ${pokemon["spawn_time"]}</li>
         <li>Fraquezas: ${pokemon["weaknesses"]}</li>
       </ul>
-    </div>`).join("")
-  }`
+    </div>
+  `).join("")}
+  `
 }
 
 
@@ -71,7 +73,7 @@ function findType(requiredType) {
   }
 }
 
-// findType("Grass")
+findType("Grass")
 
 
 function findWeakness(requiredWeakness) {
@@ -116,16 +118,36 @@ function findName() {
   for (pokemon of POKEMON["pokemon"]) {
     let pokeName = pokemon["name"];
     if (requiredName.toUpperCase() === pokeName.toUpperCase()) {
-      let newLi = document.createElement("li");
-      newLi.textContent = pokemon["name"];
-      
-      resultAll.appendChild(newLi);  
+      let newArticle = document.createElement("article");
+        
+      newArticle.innerHTML = 
+      `
+      <div class="pokemon-card">
+        <img src="${pokemon["img"]}"></img>
+      </div>
+      <div class="pokemon-name">
+      <h3>${pokemon["name"]}</h3>
+      </div>
+      <div class="pokemon-info">
+        <ul>
+          <li>Tipo: ${pokemon["type"]}</li>
+          <li>Altura: ${pokemon["height"]}</li>
+          <li>Peso: ${pokemon["weight"]}</li>
+          <li>Egg: ${pokemon["egg"]}</li>
+          <li>Spaw chance: ${pokemon["spawn_chance"]}</li>
+          <li>AVG Spawns: ${pokemon["avg_spawns"]}</li>
+          <li>Spawns time: ${pokemon["spawn_time"]}</li>
+          <li>Fraquezas: ${pokemon["weaknesses"]}</li>
+        </ul>
+      </div>
+    `
+      searchResul.appendChild(newArticle); 
     }
   }
-  // let newLi = document.createElement("li");
+  
   // newLi.textContent = ":/ Pokemon não encontrado...";
   
-  // resultAllThree.appendChild(newLi);  
+  
 }
 
 srcBtn.addEventListener("click", findName);
