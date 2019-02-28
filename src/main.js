@@ -1,12 +1,17 @@
-// window.onload = function() {
-//   showAllCards();
-// };
+window.onload = function() {
+  getPokemons();
+};
 
-const resultAll = document.querySelector("#show-all-cards");
-const searchResul = document.querySelector("#search-result");
-
+const returnHome = document.querySelector("#return-home");
+const typeMenu = document.querySelector("#type-menu");
+const weaknessesMenu = document.querySelector("#weaknesses-menu");
+const weaknessesBtn = document.querySelector("#weaknesses-btn");
 const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
+
+const resultAll = document.querySelector("#show-all-cards");
+const searchResult = document.querySelector("#search-result");
+
 
 function getPokemons() {
   return POKEMON["pokemon"];
@@ -14,6 +19,9 @@ function getPokemons() {
 
 
 function showAllCards() {
+  resultAll.style.display = "block";
+  searchResult.style.display = "none";
+
   resultAll.innerHTML = `
   ${getPokemons().map((pokemon) => `
     <div class="pokemon-card">
@@ -40,7 +48,10 @@ function showAllCards() {
 
 
 
-function findType(requiredType) {
+function findType() {
+  let requiredType = typeMenu.value;
+  searchResult.style.display = "block";
+  
   for (pokemon of POKEMON["pokemon"]) {
     for (pokeType of pokemon["type"]) {
       if (requiredType.toUpperCase() === pokeType.toUpperCase()) {
@@ -67,19 +78,22 @@ function findType(requiredType) {
           </ul>
         </div>
       `
-        searchResul.appendChild(newArticle);  
+        searchResult.appendChild(newArticle);  
       }
     }
   }
 }
 
-findType("Grass")
 
 
-function findWeakness(requiredWeakness) {
+function findWeakness() {
+  let requiredWeakness = weaknessesMenu.value;
+  searchResult.style.display = "block";
+  resultAll.style.display = "none";
+  
   for (pokemon of POKEMON["pokemon"]) {
     for (pokeWeakness of pokemon["weaknesses"]) {
-      if (requiredWeakness.toUpperCase() === pokeWeakness.toUpperCase()) {
+      if (requiredWeakness.toUpperCase() == pokeWeakness.toUpperCase()) {
         let newArticle = document.createElement("article");
         
         newArticle.innerHTML = 
@@ -103,14 +117,12 @@ function findWeakness(requiredWeakness) {
           </ul>
         </div>
       `
-        searchResul.appendChild(newArticle); 
+        searchResult.appendChild(newArticle); 
 
       }
     }
   }
 }
-
-// findWeakness("Fire");
 
 function findName() {
   let requiredName = srcBar.value;
@@ -141,7 +153,7 @@ function findName() {
         </ul>
       </div>
     `
-      searchResul.appendChild(newArticle); 
+      searchResult.appendChild(newArticle); 
     }
   }
   
@@ -150,4 +162,12 @@ function findName() {
   
 }
 
+function clear() {
+  searchResult.style.display = "none";
+  resultAll.style.display = "none";
+}
+
 srcBtn.addEventListener("click", findName);
+typeMenu.addEventListener("change", findType);
+weaknessesMenu.addEventListener("change", findWeakness);
+returnHome.addEventListener("click", showAllCards);

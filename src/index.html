@@ -7,43 +7,64 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
   <body>
-    
-    <main>
-
+    <header>
       <nav class="topnav" id="myTopnav">
-        <a href="#">Home</a>
+        <a id="return-home" href="#">Home</a>
         <a href="#">Dados</a>
         <div class="dropdown">
           <button class="dropdown-btn">Ordem Alfabética
             <i class="fas fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
+            <a href="#">A-Z</a>
             <a href="#">A</a>
             <a href="#">B</a>
             <a href="#">C</a>
             <a href="#">D</a>
             <a href="#">E</a>
             <a href="#">F</a>
+            <a href="#">G</a>
+            <a href="#">H</a>
+            <a href="#">I</a>
+            <a href="#">J</a>
+            <a href="#">K</a>
+            <a href="#">L</a>
+            <a href="#">M</a>
+            <a href="#">N</a>
+            <a href="#">O</a>
+            <a href="#">P</a>
+            <a href="#">Q</a>
+            <a href="#">R</a>
+            <a href="#">S</a>
+            <a href="#">T</a>
+            <a href="#">U</a>
+            <a href="#">V</a>
+            <a href="#">X</a>
+            <a href="#">W</a>
+            <a href="#">Y</a>
+            <a href="#">Z</a>
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropdown-btn">Tipo
+          <button id="type-btn" class="dropdown-btn">Tipo
             <i class="fas fa-caret-down"></i>
           </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
+          <select id="type-menu" class="dropdown-content">
+            <option value="normal">Selecione:</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fogo</option>
+            <option value="water">Água</option>
+            <option value="electric">Elétrico</option>
+            <option value="grass">Grama</option>
+            <option value="ice">Gelo</option>
+          </select>
         </div>
         <div class="dropdown">
           <button class="dropdown-btn">Forte Contra
             <i class="fas fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
+            <a href="#">Selecione:</a>
             <a href="#">Normal</a>
             <a href="#">Fogo</a>
             <a href="#">Água</a>
@@ -53,26 +74,33 @@
           </div>
         </div>
         <div class="dropdown">
-          <button class="dropdown-btn">Fraco Contra
+          <button id="weaknesses-btn" class="dropdown-btn">Fraco Contra
             <i class="fas fa-caret-down"></i>
           </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
+          <select id="weaknesses-menu" class="dropdown-content">
+            <option value="normal">Selecione:</option>
+            <option value="normal">Normal</option>
+            <option value="fire">Fogo</option>
+            <option value="water">Água</option>
+            <option value="electric">Elétrico</option>
+            <option value="grass">Grama</option>
+            <option value="ice">Gelo</option>
+          </select>
         </div>
         <div class="search-container">
           <form>
-            <input type="text" placeholder="Search" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" placeholder="Search" name="search" id="srcBar">
+            <button type="submit"><i class="fa fa-search" id="src-btn"></i></button>
           </form>
         </div>
-      </nav>
-  
+      </nav> 
+    </header>
+    <main>
+      <section>
+        <h1>Pokemon</h1>
+        <article id="show-all-cards"></article>
+      </section>
+      <section id="search-result"></section>
     </main>
 
 
