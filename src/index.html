@@ -10,69 +10,98 @@
     
     <main>
 
-      <nav class="topnav" id="myTopnav">
-        <a href="#">Home</a>
-        <a href="#">Dados</a>
-        <div class="dropdown">
-          <button class="dropdown-btn">Ordem Alfabética
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">A</a>
-            <a href="#">B</a>
-            <a href="#">C</a>
-            <a href="#">D</a>
-            <a href="#">E</a>
-            <a href="#">F</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropdown-btn">Tipo
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropdown-btn">Forte Contra
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropdown-btn">Fraco Contra
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
-        </div>
-        <div class="search-container">
-          <form>
-            <input type="text" placeholder="Search" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
+      <nav id="mySidenav" class="sidenav">
+        <a href="#" id="home">Home<i class="fas fa-home"></i></a>
+        <a href="#" id="data">Dados<i class="fas fa-database"></i></a>
       </nav>
   
+      <section class="search">
+        <div class="container">
+          <form class="pokemon-search">
+            <h2>Pesquisa</h2>
+            <div class="row">
+              <div class="col-1-4">
+                <select class="alphabetical-order">
+                  <option value="order" selected>Ordem Alfabética</option>
+                  <option value="a">A</option>
+                  <option value="b">B</option>
+                  <option value="c">B</option>
+                  <option value="d">D</option>
+                  <option value="e">E</option>
+                  <option value="f">F</option>
+                  <option value="g">G</option>
+                  <option value="h">H</option>
+                  <option value="i">I</option>
+                  <option value="j">J</option>
+                  <option value="k">K</option>
+                  <option value="l">L</option>
+                  <option value="m">M</option>
+                  <option value="n">N</option>
+                  <option value="o">O</option>
+                  <option value="p">P</option>
+                  <option value="q">Q</option>
+                  <option value="r">R</option>
+                  <option value="s">S</option>
+                  <option value="t">T</option>
+                  <option value="u">U</option>
+                  <option value="v">V</option>
+                  <option value="w">W</option>
+                  <option value="x">X</option>
+                  <option value="y">Y</option>
+                  <option value="z">Z</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <select class="pokemon-type">
+                  <option value="type" selected>Tipo de Pokemon</option>
+                  <option value="normal">Normal</option>
+                  <option value="fire">Fogo</option>
+                  <option value="water">Água</option>
+                  <option value="eletric">Elétrico</option>
+                  <option value="grass">Grama</option>
+                  <option value="ice">Gelo</option>
+                  <option value="fighting">Lutador</option>
+                  <option value="poison">Venenoso</option>
+                  <option value="ground">Terra</option>
+                  <option value="flying">Voador</option>
+                  <option value="psychic">Psíquico</option>
+                  <option value="bug">Inseto</option>
+                  <option value="rock">Pedra</option>
+                  <option value="ghost">Fantasma</option>
+                  <option value="dragon">Dragão</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <select class="pokemon-weakness">
+                  <option value="type" selected>Fraco Contra</option>
+                  <option value="normal">Normal</option>
+                  <option value="fire">Fogo</option>
+                  <option value="water">Água</option>
+                  <option value="eletric">Elétrico</option>
+                  <option value="grass">Grama</option>
+                  <option value="ice">Gelo</option>
+                  <option value="fighting">Lutador</option>
+                  <option value="poison">Venenoso</option>
+                  <option value="ground">Terra</option>
+                  <option value="flying">Voador</option>
+                  <option value="psychic">Psíquico</option>
+                  <option value="bug">Inseto</option>
+                  <option value="rock">Pedra</option>
+                  <option value="ghost">Fantasma</option>
+                  <option value="dragon">Dragão</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <div class="search-container">
+                <input type="text" name="name-search" placeholder="Pesquisar por nome">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      
     </main>
 
 
