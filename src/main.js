@@ -1,5 +1,3 @@
-
-
 const returnHome = document.querySelector("#return-home");
 const selectedLetter = document.querySelector("#selected-letter");
 const typeMenu = document.querySelector("#type-menu");
