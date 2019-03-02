@@ -6,6 +6,7 @@ const weaknessesBtn = document.querySelector("#weaknesses-btn");
 const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
 
+const resultHeader = document.querySelector("#result-header")
 const resultAll = document.querySelector("#show-all-cards");
 const searchResult = document.querySelector("#search-result");
 
@@ -40,11 +41,12 @@ function showAllCards() {
 
 function filterFirstLetter() {
   let getFirstLetter = selectedLetter.value;
-  let pokemonsByFirstLetter = [];
+  let totalFirstLetter = [];
 
   pokemons.forEach(function (pokemon) {
     if (pokemon.name[0] === getFirstLetter) {
-      pokemonsByFirstLetter.push(pokemon.name)
+      totalFirstLetter.push(pokemon.name);
+
       let newArticle = document.createElement("article");
         
       newArticle.innerHTML = 
@@ -71,14 +73,22 @@ function filterFirstLetter() {
       searchResult.appendChild(newArticle); 
     }
   })
+
+  let total = totalFirstLetter.length;
+  let newH = document.createElement("h1");
+  newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
+  resultHeader.appendChild(newH);
 }
 
 function findType() {
   let requiredType = typeMenu.value;
+  let totalType = 0;
 
   pokemons.forEach(function(pokemon) {
     pokemon.type.forEach(function(type) {
       if (type.toUpperCase() === requiredType.toUpperCase()) {
+        totalType++;
+
         let newArticle = document.createElement("article");
         
         newArticle.innerHTML = 
@@ -106,16 +116,24 @@ function findType() {
       }
     })
   })
+
+  let total = totalType;
+  let newH = document.createElement("h1");
+  newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
+  resultHeader.appendChild(newH);
 }
 
 
 
 function findWeakness() {
   let requiredWeakness = weaknessesMenu.value;
+  let totalWeaknesses = 0;
   
   pokemons.forEach(function(pokemon) {
     pokemon.weaknesses.forEach(function(weaknesses) {
       if (weaknesses.toUpperCase() === requiredWeakness.toUpperCase()) {
+        totalWeaknesses++;
+
         let newArticle = document.createElement("article");
         
         newArticle.innerHTML = 
@@ -143,6 +161,10 @@ function findWeakness() {
       }
     })
   })
+  let total = totalWeaknesses;
+  let newH = document.createElement("h1");
+  newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
+  resultHeader.appendChild(newH);
 }
 
 // function findName() {
@@ -184,15 +206,21 @@ function findWeakness() {
 //   }
 // }
 
-srcBtn.addEventListener("click", findName);
+// srcBtn.addEventListener("click", findName);
 returnHome.addEventListener("click", showAllCards);
-selectedLetter.addEventListener("change", ()=> {
+
+selectedLetter.addEventListener("change", () => {
   searchResult.innerHTML = "";
+  resultHeader.innerHTML = "";
   filterFirstLetter()});
-typeMenu.addEventListener("change", ()=> {
+
+typeMenu.addEventListener("change", () => {
   searchResult.innerHTML = "";
+  resultHeader.innerHTML = "";
   findType();
 });
-weaknessesMenu.addEventListener("change", ()=> {
+
+weaknessesMenu.addEventListener("change", () => {
+  resultHeader.innerHTML = "";
   searchResult.innerHTML = "";
   findWeakness()});
