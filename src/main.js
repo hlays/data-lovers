@@ -13,15 +13,7 @@ const searchResult = document.querySelector("#search-result");
 let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
 
-// POKEMON.pokemon[0].next_evolution[0].name
-function getEvolution() {
-  
-}
-
 function showAllCards() {
-  // resultAll.style.display = "block";
-  // searchResult.style.display = "none";
-
   resultAll.innerHTML = `
   ${pokemons.map((pokemon) => `
     <div class="pokemon-card">
@@ -79,21 +71,14 @@ function filterFirstLetter() {
       searchResult.appendChild(newArticle); 
     }
   })
-
-console.log(pokemonsByFirstLetter);
-
-
 }
 
 function findType() {
   let requiredType = typeMenu.value;
-  // searchResult.style.display = "block";
 
-
-  
-  for (pokemon of POKEMON["pokemon"]) {
-    for (pokeType of pokemon["type"]) {
-      if (requiredType.toUpperCase() === pokeType.toUpperCase()) {
+  pokemons.forEach(function(pokemon) {
+    pokemon.type.forEach(function(type) {
+      if (type.toUpperCase() === requiredType.toUpperCase()) {
         let newArticle = document.createElement("article");
         
         newArticle.innerHTML = 
@@ -117,30 +102,20 @@ function findType() {
           </ul>
         </div>
       `
-        searchResult.appendChild(newArticle);  
+        searchResult.appendChild(newArticle);
       }
-    }
-  }
+    })
+  })
 }
 
 
 
 function findWeakness() {
   let requiredWeakness = weaknessesMenu.value;
-  // searchResult.style.display = "block";
-  // resultAll.style.display = "none";
-  console.log(requiredWeakness);
   
-
-  let pokemons = POKEMON["pokemon"];
-  let mapWeak = pokemons.map((pokemon) => pokemon.weaknesses.map((elem) => elem.toUpperCase() == requiredWeakness.toUpperCase()));
-
-  console.log(mapWeak.name);
-
-
-  for (pokemon of POKEMON["pokemon"]) {
-    for (pokeWeakness of pokemon["weaknesses"]) {
-      if (requiredWeakness.toUpperCase() == pokeWeakness.toUpperCase()) {
+  pokemons.forEach(function(pokemon) {
+    pokemon.weaknesses.forEach(function(weaknesses) {
+      if (weaknesses.toUpperCase() === requiredWeakness.toUpperCase()) {
         let newArticle = document.createElement("article");
         
         newArticle.innerHTML = 
@@ -163,60 +138,61 @@ function findWeakness() {
             <li>Fraquezas: ${pokemon["weaknesses"]}</li>
           </ul>
         </div>
-      `
-        searchResult.appendChild(newArticle); 
-
+        `
+        searchResult.appendChild(newArticle);
       }
-    }
-  }
+    })
+  })
 }
 
-function findName() {
-  let requiredName = srcBar.value;
+// function findName() {
+//   let requiredName = srcBar.value;
 
-  let filteredName = pokemons.filter((pokemon) => pokemon["name"].toUpperCase() === requiredName.toUpperCase());
+//   let filteredName = pokemons.filter((pokemon) => pokemon["name"].toUpperCase() === requiredName.toUpperCase());
 
-  console.log(filteredName);
-  // console.log(filteredName["type"]);
+//   console.log(filteredName);
+//   // console.log(filteredName["type"]);
   
-  if (filteredName !== undefined) {
-    let newArticle = document.createElement("article");
+//   if (filteredName !== undefined) {
+//     let newArticle = document.createElement("article");
         
-    newArticle.innerHTML = `
-    <div class="pokemon-card">
-      <img src="${filteredName["img"]}"></img>
-    </div>
-    <div class="pokemon-name">
-    <h3>${filteredName["name"]}</h3>
-    </div>
-    <div class="pokemon-info">
-      <ul>
-      <li>Tipo: ${filteredName["type"]}</li>
-      <li>Altura: ${filteredName["height"]}</li>
-      <li>Peso: ${filteredName["weight"]}</li>
-      <li>Egg: ${filteredName["egg"]}</li>
-      <li>Spaw chance: ${filteredName["spawn_chance"]}</li>
-      <li>AVG Spawns: ${filteredName["avg_spawns"]}</li>
-      <li>Spawns time: ${filteredName["spawn_time"]}</li>
-      <li>Fraquezas: ${filteredName["weaknesses"]}</li>
-      </ul>
-      </div>
-      `
-      searchResult.appendChild(newArticle); 
-  } else {
-    let newArticle = document.createElement("article");
-    newArticle.innerHTML = `<p>:/ Pokemon não encontrado...</p>`
-    searchResult.appendChild(newArticle); 
-  }
-}
-
-function clear() {
-  searchResult.style.display = "none";
-  resultAll.style.display = "none";
-}
+//     newArticle.innerHTML = `
+//     <div class="pokemon-card">
+//       <img src="${filteredName["img"]}"></img>
+//     </div>
+//     <div class="pokemon-name">
+//     <h3>${filteredName["name"]}</h3>
+//     </div>
+//     <div class="pokemon-info">
+//       <ul>
+//       <li>Tipo: ${filteredName["type"]}</li>
+//       <li>Altura: ${filteredName["height"]}</li>
+//       <li>Peso: ${filteredName["weight"]}</li>
+//       <li>Egg: ${filteredName["egg"]}</li>
+//       <li>Spaw chance: ${filteredName["spawn_chance"]}</li>
+//       <li>AVG Spawns: ${filteredName["avg_spawns"]}</li>
+//       <li>Spawns time: ${filteredName["spawn_time"]}</li>
+//       <li>Fraquezas: ${filteredName["weaknesses"]}</li>
+//       </ul>
+//       </div>
+//       `
+//       searchResult.appendChild(newArticle); 
+//   } else {
+//     let newArticle = document.createElement("article");
+//     newArticle.innerHTML = `<p>:/ Pokemon não encontrado...</p>`
+//     searchResult.appendChild(newArticle); 
+//   }
+// }
 
 srcBtn.addEventListener("click", findName);
 returnHome.addEventListener("click", showAllCards);
-selectedLetter.addEventListener("change", filterFirstLetter)
-typeMenu.addEventListener("change", findType);
-weaknessesMenu.addEventListener("change", findWeakness);
+selectedLetter.addEventListener("change", ()=> {
+  searchResult.innerHTML = "";
+  filterFirstLetter()});
+typeMenu.addEventListener("change", ()=> {
+  searchResult.innerHTML = "";
+  findType();
+});
+weaknessesMenu.addEventListener("change", ()=> {
+  searchResult.innerHTML = "";
+  findWeakness()});
