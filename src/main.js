@@ -1,5 +1,5 @@
 const returnHome = document.querySelector("#return-home");
-const orderMenu = document.querySelector("#order");
+const sortMenu = document.querySelector("#sort-menu");
 const letterMenu = document.querySelector("#selected-letter");
 const typeMenu = document.querySelector("#type-menu");
 const weaknessesMenu = document.querySelector("#weaknesses-menu");
@@ -18,7 +18,7 @@ let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 function showAllCards() {
   resultHeader.textContent = "Todos os pokemons:";
 
-  POKEMON["pokemon"].forEach(function(pokemon) {
+  pokemons.forEach(function(pokemon) {
     let newArticle = document.createElement("article");
 
     newArticle.innerHTML = `
@@ -45,20 +45,20 @@ function showAllCards() {
   })
 }
 
-function findOrder() {
-  let order = orderMenu.value;
+function findsort() {
+  let sortPokemons = sortMenu.value;
 
-  if (order === "az") {
-    orderAZ();
+  if (sortPokemons === "az") {
+    sortAZ();
   } else {
-    orderZA();
+    sortZA();
   }
 }
 
-function orderAZ() {
+function sortAZ() {
   resultHeader.textContent = `Pokemons ordenados de A a Z`;
 
-  let namesAZ = pokemons.sort(function (a, b) {
+  let namesAZ = [...pokemons].sort(function (a, b) {
     var nameA = a.name.toUpperCase();
     var nameB = b.name.toUpperCase();
     if (nameA < nameB) {
@@ -98,10 +98,10 @@ function orderAZ() {
   })  
 }
 
-function orderZA() {
+function sortZA() {
   resultHeader.textContent = `Pokemons ordenados de Z a A`;
 
-  let namesAZ = pokemons.sort(function (a, b) {
+  let namesAZ = [...pokemons].sort(function (a, b) {
     var nameA = a.name.toUpperCase();
     var nameB = b.name.toUpperCase();
     if (nameA > nameB) {
@@ -323,7 +323,7 @@ function findName() {
 returnHome.addEventListener("click", () => {
   resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  orderMenu.selectedIndex = "order";
+  sortMenu.selectedIndex = "sort";
   letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.selectedIndex = "type";
   typeMenu.selectedIndex = "type";
@@ -331,20 +331,20 @@ returnHome.addEventListener("click", () => {
   showAllCards()
 });
 
-orderMenu.addEventListener("change", () => {
+sortMenu.addEventListener("change", () => {
   resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
   letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.selectedIndex = "type";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
-  findOrder()
+  findsort()
 });
 
 letterMenu.addEventListener("change", () => {
   srcResult.innerHTML = "";
   resultInfo.innerHTML = "";
-  orderMenu.selectedIndex = "order";
+  sortMenu.selectedIndex = "sort";
   weaknessesMenu.selectedIndex = "type";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
@@ -354,7 +354,7 @@ letterMenu.addEventListener("change", () => {
 typeMenu.addEventListener("change", () => {
   srcResult.innerHTML = "";
   resultInfo.innerHTML = "";
-  orderMenu.selectedIndex = "order";
+  sortMenu.selectedIndex = "sort";
   letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.selectedIndex = "type";
   srcBar.value = "";
@@ -364,7 +364,7 @@ typeMenu.addEventListener("change", () => {
 weaknessesMenu.addEventListener("change", () => {
   resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  orderMenu.selectedIndex = "order";
+  sortMenu.selectedIndex = "sort";
   letterMenu.selectedIndex = "select-letter";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
@@ -374,7 +374,7 @@ weaknessesMenu.addEventListener("change", () => {
 srcBtn.addEventListener("click", () => {
   resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  orderMenu.selectedIndex = "order";
+  sortMenu.selectedIndex = "sort";
   letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.value = "type";
   typeMenu.value = "type";
