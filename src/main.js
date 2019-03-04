@@ -8,7 +8,6 @@ const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
 
 const resultHeader = document.querySelector("#result-header")
-const resultAll = document.querySelector("#show-all-cards");
 const searchResult = document.querySelector("#search-result");
 
 
@@ -16,7 +15,7 @@ let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
 
 function showAllCards() {
-  resultAll.innerHTML = `
+  searchResult.innerHTML = `
   ${pokemons.map((pokemon) => `
     <div class="pokemon-card">
       <img src="${pokemon["img"]}"></img>
@@ -87,7 +86,7 @@ function findType() {
 
   pokemons.forEach(function(pokemon) {
     pokemon.type.forEach(function(type) {
-      if (type.toUpperCase() === requiredType.toUpperCase()) {
+      if (type === requiredType) {
         totalType++;
 
         let newArticle = document.createElement("article");
@@ -132,7 +131,7 @@ function findWeakness() {
   
   pokemons.forEach(function(pokemon) {
     pokemon.weaknesses.forEach(function(weaknesses) {
-      if (weaknesses.toUpperCase() === requiredWeakness.toUpperCase()) {
+      if (weaknesses === requiredWeakness) {
         totalWeaknesses++;
 
         let newArticle = document.createElement("article");
