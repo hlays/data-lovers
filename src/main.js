@@ -1,5 +1,6 @@
 const returnHome = document.querySelector("#return-home");
-const selectedLetter = document.querySelector("#selected-letter");
+const orderMenu = document.querySelector("#order");
+const letterMenu = document.querySelector("#selected-letter");
 const typeMenu = document.querySelector("#type-menu");
 const weaknessesMenu = document.querySelector("#weaknesses-menu");
 
@@ -7,16 +8,20 @@ const weaknessesMenu = document.querySelector("#weaknesses-menu");
 const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
 
-const resultHeader = document.querySelector("#result-header")
+const resultHeader = document.querySelector("#result-header");
+const resultInfo = document.querySelector("#result-info");
 const srcResult = document.querySelector("#search-result");
-
 
 let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
 
 function showAllCards() {
-  srcResult.innerHTML = `
-  ${pokemons.map((pokemon) => `
+  resultHeader.textContent = "Todos os pokemons:";
+
+  POKEMON["pokemon"].forEach(function(pokemon) {
+    let newArticle = document.createElement("article");
+
+    newArticle.innerHTML = `
     <div class="pokemon-card">
       <img src="${pokemon["img"]}"></img>
     </div>
@@ -34,14 +39,113 @@ function showAllCards() {
         <li>Spawns time: ${pokemon["spawn_time"]}</li>
         <li>Fraquezas: ${pokemon["weaknesses"]}</li>
       </ul>
-    </div>
-  `).join("")}
-  `
+    </div>`
+
+    srcResult.appendChild(newArticle);
+  })
+}
+
+function findOrder() {
+  let order = orderMenu.value;
+
+  if (order === "az") {
+    orderAZ();
+  } else {
+    orderZA();
+  }
+}
+
+function orderAZ() {
+  resultHeader.textContent = `Pokemons ordenados de A a Z`;
+
+  let namesAZ = pokemons.sort(function (a, b) {
+    var nameA = a.name.toUpperCase();
+    var nameB = b.name.toUpperCase();
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  
+  namesAZ.forEach(function(pokemon) {
+    let newArticle = document.createElement("article");
+
+      newArticle.innerHTML =
+        `
+      <div class="pokemon-card">
+        <img src="${pokemon["img"]}"></img>
+      </div>
+      <div class="pokemon-name">
+      <h3>${pokemon["name"]}</h3>
+      </div>
+      <div class="pokemon-info">
+        <ul>
+          <li>Tipo: ${pokemon["type"]}</li>
+          <li>Altura: ${pokemon["height"]}</li>
+          <li>Peso: ${pokemon["weight"]}</li>
+          <li>Egg: ${pokemon["egg"]}</li>
+          <li>Spaw chance: ${pokemon["spawn_chance"]}</li>
+          <li>AVG Spawns: ${pokemon["avg_spawns"]}</li>
+          <li>Spawns time: ${pokemon["spawn_time"]}</li>
+          <li>Fraquezas: ${pokemon["weaknesses"]}</li>
+        </ul>
+      </div>
+    `
+    srcResult.appendChild(newArticle);
+  })  
+}
+
+function orderZA() {
+  resultHeader.textContent = `Pokemons ordenados de Z a A`;
+
+  let namesAZ = pokemons.sort(function (a, b) {
+    var nameA = a.name.toUpperCase();
+    var nameB = b.name.toUpperCase();
+    if (nameA > nameB) {
+      return -1;
+    }
+    if (nameA < nameB) {
+      return 1;
+    }
+    return 0;
+  });
+  
+  namesAZ.forEach(function(pokemon) {
+    let newArticle = document.createElement("article");
+
+      newArticle.innerHTML =
+        `
+      <div class="pokemon-card">
+        <img src="${pokemon["img"]}"></img>
+      </div>
+      <div class="pokemon-name">
+      <h3>${pokemon["name"]}</h3>
+      </div>
+      <div class="pokemon-info">
+        <ul>
+          <li>Tipo: ${pokemon["type"]}</li>
+          <li>Altura: ${pokemon["height"]}</li>
+          <li>Peso: ${pokemon["weight"]}</li>
+          <li>Egg: ${pokemon["egg"]}</li>
+          <li>Spaw chance: ${pokemon["spawn_chance"]}</li>
+          <li>AVG Spawns: ${pokemon["avg_spawns"]}</li>
+          <li>Spawns time: ${pokemon["spawn_time"]}</li>
+          <li>Fraquezas: ${pokemon["weaknesses"]}</li>
+        </ul>
+      </div>
+    `
+    srcResult.appendChild(newArticle);
+  })  
 }
 
 function filterFirstLetter() {
-  let getFirstLetter = selectedLetter.value;
+  let getFirstLetter = letterMenu.value;
   let totalFirstLetter = [];
+  
+  resultHeader.textContent = `Pokemons que começam com a letra ${getFirstLetter}`;
 
   pokemons.forEach(function (pokemon) {
     if (pokemon.name[0] === getFirstLetter) {
@@ -77,12 +181,14 @@ function filterFirstLetter() {
   let total = totalFirstLetter.length;
   let newH = document.createElement("h1");
   newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
-  resultHeader.appendChild(newH);
+  resultInfo.appendChild(newH);
 }
 
 function findType() {
   let requiredType = typeMenu.value;
   let totalType = 0;
+
+  resultHeader.textContent = `Pokemons do tipo: ${requiredType}`;
 
   pokemons.forEach(function (pokemon) {
     pokemon.type.forEach(function (type) {
@@ -120,14 +226,14 @@ function findType() {
   let total = totalType;
   let newH = document.createElement("h1");
   newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
-  resultHeader.appendChild(newH);
+  resultInfo.appendChild(newH);
 }
-
-
 
 function findWeakness() {
   let requiredWeakness = weaknessesMenu.value;
   let totalWeaknesses = 0;
+
+  resultHeader.textContent = `Pokemons com fraqueza ${requiredWeakness}`;
 
   pokemons.forEach(function (pokemon) {
     pokemon.weaknesses.forEach(function (weaknesses) {
@@ -164,11 +270,14 @@ function findWeakness() {
   let total = totalWeaknesses;
   let newH = document.createElement("h1");
   newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons compatíveis.`
-  resultHeader.appendChild(newH);
+  resultInfo.appendChild(newH);
 }
 
 function findName() {
   let requiredName = srcBar.value;
+
+  resultHeader.textContent = `Pokemons com o nome ${requiredName.toUpperCase()}`;
+
   let names = pokemons.map((pokemon) => pokemon.name);
   let match = names.filter((name) => name.toUpperCase() === requiredName.toUpperCase());
 
@@ -211,28 +320,31 @@ function findName() {
 }
 
 
-srcBtn.addEventListener("click", () => {
-  resultHeader.innerHTML = "";
-  srcResult.innerHTML = "";
-  selectedLetter.selectedIndex = "order";
-  weaknessesMenu.value = "type";
-  typeMenu.value = "type";
-  findName()
-});
-
 returnHome.addEventListener("click", () => {
-  resultHeader.innerHTML = "";
+  resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  selectedLetter.selectedIndex = "order";
+  orderMenu.selectedIndex = "order";
+  letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.selectedIndex = "type";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
   showAllCards()
 });
 
-selectedLetter.addEventListener("change", () => {
+orderMenu.addEventListener("change", () => {
+  resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  resultHeader.innerHTML = "";
+  letterMenu.selectedIndex = "select-letter";
+  weaknessesMenu.selectedIndex = "type";
+  typeMenu.selectedIndex = "type";
+  srcBar.value = "";
+  findOrder()
+});
+
+letterMenu.addEventListener("change", () => {
+  srcResult.innerHTML = "";
+  resultInfo.innerHTML = "";
+  orderMenu.selectedIndex = "order";
   weaknessesMenu.selectedIndex = "type";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
@@ -241,18 +353,30 @@ selectedLetter.addEventListener("change", () => {
 
 typeMenu.addEventListener("change", () => {
   srcResult.innerHTML = "";
-  resultHeader.innerHTML = "";
-  selectedLetter.selectedIndex = "order";
+  resultInfo.innerHTML = "";
+  orderMenu.selectedIndex = "order";
+  letterMenu.selectedIndex = "select-letter";
   weaknessesMenu.selectedIndex = "type";
   srcBar.value = "";
   findType();
 });
 
 weaknessesMenu.addEventListener("change", () => {
-  resultHeader.innerHTML = "";
+  resultInfo.innerHTML = "";
   srcResult.innerHTML = "";
-  selectedLetter.selectedIndex = "order";
+  orderMenu.selectedIndex = "order";
+  letterMenu.selectedIndex = "select-letter";
   typeMenu.selectedIndex = "type";
   srcBar.value = "";
   findWeakness()
+});
+
+srcBtn.addEventListener("click", () => {
+  resultInfo.innerHTML = "";
+  srcResult.innerHTML = "";
+  orderMenu.selectedIndex = "order";
+  letterMenu.selectedIndex = "select-letter";
+  weaknessesMenu.value = "type";
+  typeMenu.value = "type";
+  findName()
 });

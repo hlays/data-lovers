@@ -19,8 +19,15 @@
             <h2>Pesquisa</h2>
             <div class="row">
               <div class="col-1-4">
+                <select id="order">
+                  <option value="order" selected>Ordem Ascendente/Descente</option>
+                  <option value="az">A-Z</option>
+                  <option value="za">Z-A</option>
+                </select>
+              </div>
+              <div class="col-1-4">
                 <select id="selected-letter" class="alphabetical-order">
-                  <option value="order" selected>Ordem Alfabética</option>
+                  <option value="select-letter" selected>Ordem Alfabética</option>
                   <option value="A">A</option>
                   <option value="B">B</option>
                   <option value="C">C</option>
@@ -100,6 +107,7 @@
       </section>
       <section>
         <h1 id="result-header"></h1>
+        <h2 id="result-info"></h2>
       <section id="search-result"></section>
     </main>
     <script src="src/data/pokemon/pokemon.js"></script>
