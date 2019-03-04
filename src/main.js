@@ -24,12 +24,8 @@ function showAllCards() {
     newArticle.innerHTML = `
     <div class="pokemon-card">
       <img src="${pokemon["img"]}"></img>
-    </div>
-    <div class="pokemon-name">
-    <h3>${pokemon["name"]}</h3>
-    </div>
-    <div class="pokemon-info">
-      <ul>
+      <h3>${pokemon["name"]}</h3>
+      <ul class="info-list">
         <li>Tipo: ${pokemon["type"]}</li>
         <li>Altura: ${pokemon["height"]}</li>
         <li>Peso: ${pokemon["weight"]}</li>
@@ -74,15 +70,10 @@ function sortAZ() {
     let newArticle = document.createElement("article");
 
       newArticle.innerHTML =
-        `
-      <div class="pokemon-card">
+      `<div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
-      </div>
-      <div class="pokemon-name">
-      <h3>${pokemon["name"]}</h3>
-      </div>
-      <div class="pokemon-info">
-        <ul>
+        <h3>${pokemon["name"]}</h3>
+        <ul class="info-list">
           <li>Tipo: ${pokemon["type"]}</li>
           <li>Altura: ${pokemon["height"]}</li>
           <li>Peso: ${pokemon["weight"]}</li>
@@ -92,8 +83,7 @@ function sortAZ() {
           <li>Spawns time: ${pokemon["spawn_time"]}</li>
           <li>Fraquezas: ${pokemon["weaknesses"]}</li>
         </ul>
-      </div>
-    `
+      </div>`
     srcResult.appendChild(newArticle);
   })  
 }
@@ -117,15 +107,10 @@ function sortZA() {
     let newArticle = document.createElement("article");
 
       newArticle.innerHTML =
-        `
-      <div class="pokemon-card">
+      `<div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
-      </div>
-      <div class="pokemon-name">
-      <h3>${pokemon["name"]}</h3>
-      </div>
-      <div class="pokemon-info">
-        <ul>
+        <h3>${pokemon["name"]}</h3>
+        <ul class="info-list">
           <li>Tipo: ${pokemon["type"]}</li>
           <li>Altura: ${pokemon["height"]}</li>
           <li>Peso: ${pokemon["weight"]}</li>
@@ -135,8 +120,7 @@ function sortZA() {
           <li>Spawns time: ${pokemon["spawn_time"]}</li>
           <li>Fraquezas: ${pokemon["weaknesses"]}</li>
         </ul>
-      </div>
-    `
+      </div>`
     srcResult.appendChild(newArticle);
   })  
 }
@@ -154,15 +138,11 @@ function filterFirstLetter() {
       let newArticle = document.createElement("article");
 
       newArticle.innerHTML =
-        `
+      `
       <div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
-      </div>
-      <div class="pokemon-name">
-      <h3>${pokemon["name"]}</h3>
-      </div>
-      <div class="pokemon-info">
-        <ul>
+        <h3>${pokemon["name"]}</h3>
+        <ul class="info-list">
           <li>Tipo: ${pokemon["type"]}</li>
           <li>Altura: ${pokemon["height"]}</li>
           <li>Peso: ${pokemon["weight"]}</li>
@@ -172,8 +152,7 @@ function filterFirstLetter() {
           <li>Spawns time: ${pokemon["spawn_time"]}</li>
           <li>Fraquezas: ${pokemon["weaknesses"]}</li>
         </ul>
-      </div>
-    `
+      </div>`
       srcResult.appendChild(newArticle);
     }
   })
@@ -199,25 +178,20 @@ function findType() {
 
         newArticle.innerHTML =
           `
-        <div class="pokemon-card">
-          <img src="${pokemon["img"]}"></img>
-        </div>
-        <div class="pokemon-name">
-        <h3>${pokemon["name"]}</h3>
-        </div>
-        <div class="pokemon-info">
-          <ul>
-            <li>Tipo: ${pokemon["type"]}</li>
-            <li>Altura: ${pokemon["height"]}</li>
-            <li>Peso: ${pokemon["weight"]}</li>
-            <li>Egg: ${pokemon["egg"]}</li>
-            <li>Spaw chance: ${pokemon["spawn_chance"]}</li>
-            <li>AVG Spawns: ${pokemon["avg_spawns"]}</li>
-            <li>Spawns time: ${pokemon["spawn_time"]}</li>
-            <li>Fraquezas: ${pokemon["weaknesses"]}</li>
-          </ul>
-        </div>
-      `
+          <div class="pokemon-card">
+            <img src="${pokemon["img"]}"></img>
+            <h3>${pokemon["name"]}</h3>
+            <ul class="info-list">
+              <li>Tipo: ${pokemon["type"]}</li>
+              <li>Altura: ${pokemon["height"]}</li>
+              <li>Peso: ${pokemon["weight"]}</li>
+              <li>Egg: ${pokemon["egg"]}</li>
+              <li>Spaw chance: ${pokemon["spawn_chance"]}</li>
+              <li>AVG Spawns: ${pokemon["avg_spawns"]}</li>
+              <li>Spawns time: ${pokemon["spawn_time"]}</li>
+              <li>Fraquezas: ${pokemon["weaknesses"]}</li>
+            </ul>
+          </div>`
         srcResult.appendChild(newArticle);
       }
     })
@@ -233,7 +207,7 @@ function findWeakness() {
   let requiredWeakness = weaknessesMenu.value;
   let totalWeaknesses = 0;
 
-  resultHeader.textContent = `Pokemons com fraqueza ${requiredWeakness}`;
+  resultHeader.textContent = `Pokemons com fraqueza: ${requiredWeakness}`;
 
   pokemons.forEach(function (pokemon) {
     pokemon.weaknesses.forEach(function (weaknesses) {
@@ -242,16 +216,11 @@ function findWeakness() {
 
         let newArticle = document.createElement("article");
 
-        newArticle.innerHTML =
-          `
+        newArticle.innerHTML = `  
         <div class="pokemon-card">
           <img src="${pokemon["img"]}"></img>
-        </div>
-        <div class="pokemon-name">
-        <h3>${pokemon["name"]}</h3>
-        </div>
-        <div class="pokemon-info">
-          <ul>
+          <h3>${pokemon["name"]}</h3>
+          <ul class="info-list">
             <li>Tipo: ${pokemon["type"]}</li>
             <li>Altura: ${pokemon["height"]}</li>
             <li>Peso: ${pokemon["weight"]}</li>
@@ -261,8 +230,7 @@ function findWeakness() {
             <li>Spawns time: ${pokemon["spawn_time"]}</li>
             <li>Fraquezas: ${pokemon["weaknesses"]}</li>
           </ul>
-        </div>
-        `
+        </div>`
         srcResult.appendChild(newArticle);
       }
     })
@@ -287,16 +255,11 @@ function findName() {
         if (pokemon.name === item) {
           let newArticle = document.createElement("article");
 
-          newArticle.innerHTML =
-            `
+          newArticle.innerHTML = `
           <div class="pokemon-card">
             <img src="${pokemon["img"]}"></img>
-          </div>
-          <div class="pokemon-name">
-          <h3>${pokemon["name"]}</h3>
-          </div>
-          <div class="pokemon-info">
-            <ul>
+            <h3>${pokemon["name"]}</h3>
+            <ul class="info-list">
               <li>Tipo: ${pokemon["type"]}</li>
               <li>Altura: ${pokemon["height"]}</li>
               <li>Peso: ${pokemon["weight"]}</li>
@@ -306,8 +269,7 @@ function findName() {
               <li>Spawns time: ${pokemon["spawn_time"]}</li>
               <li>Fraquezas: ${pokemon["weaknesses"]}</li>
             </ul>
-          </div>
-          `
+          </div>` 
           srcResult.appendChild(newArticle);
         }
       })

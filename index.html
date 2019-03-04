@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Pokemon - Data Lovers</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link href="src/style.css" rel="stylesheet" type="text/css"/>
-  </head>
-  <body>
-    <main>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pokemon - Data Lovers</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link href="src/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="src/img/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <header>
       <div id="my-sidenav" class="sidenav">
         <a href="#" id="return-home" class="home">Home<i class="fas fa-home"></i></a>
         <a href="#" id="data" class="data">Dados<i class="fas fa-database"></i></a>
@@ -16,7 +20,7 @@
       <section class="search">
         <div class="container">
           <article class="pokemon-search">
-            <h2>Pesquisa</h2>
+            <h1>Pesquisa</h1>
             <div class="row">
               <div class="col-1-4">
                 <select id="sort-menu">
@@ -93,24 +97,27 @@
                   <option value="Bug">Inseto</option>
                   <option value="Rock">Pedra</option>
                   <option value="Ghost">Fantasma</option>
-                  <option value="Dragon">Dragão</article>
-                </select>
-              </div>
-              <div class="col-1-4">
-                <div class="search-container">
-                  <input id="src-bar" type="text" name="name-search" placeholder="Pesquisar por nome">
-                  <button id="src-btn"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
-            </div>
+                  <option value="Dragon">Dragão
+          </article>
+          </select>
+        </div>
+        <div class="col-1-4">
+          <div class="search-container">
+            <input id="src-bar" type="text" name="name-search" placeholder="Pesquisar por nome">
+            <button id="src-btn"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+        </div>
         </div>
       </section>
-      <section>
-        <h1 id="result-header"></h1>
-        <h2 id="result-info"></h2>
-      <section id="search-result"></section>
-    </main>
-    <script src="src/data/pokemon/pokemon.js"></script>
-    <script src="src/main.js"></script>
-  </body>
+    </header>
+    <section>
+      <h1 id="result-header"></h1>
+      <h2 id="result-info"></h2>
+      <section id="search-result" class="result-box"></section>
+  </main>
+  <script src="src/data/pokemon/pokemon.js"></script>
+  <script src="src/main.js"></script>
+</body>
+
 </html>
