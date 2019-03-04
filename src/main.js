@@ -2,7 +2,7 @@ const returnHome = document.querySelector("#return-home");
 const selectedLetter = document.querySelector("#selected-letter");
 const typeMenu = document.querySelector("#type-menu");
 const weaknessesMenu = document.querySelector("#weaknesses-menu");
-const weaknessesBtn = document.querySelector("#weaknesses-btn");
+
 
 const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
@@ -206,21 +206,44 @@ function findName() {
 }
 
 
-srcBtn.addEventListener("click", findName);
-returnHome.addEventListener("click", showAllCards);
+srcBtn.addEventListener("click", () => {
+  resultHeader.innerHTML = "";
+  searchResult.innerHTML = "";
+  selectedLetter.selectedIndex = "order";
+  weaknessesMenu.value = "type";
+  typeMenu.value = "type";
+  findName()
+});
+
+returnHome.addEventListener("click", () => {
+  resultHeader.innerHTML = "";
+  searchResult.innerHTML = "";
+  selectedLetter.selectedIndex = "order";
+  weaknessesMenu.selectedIndex = "type";
+  typeMenu.selectedIndex = "type";
+  showAllCards()
+});
 
 selectedLetter.addEventListener("change", () => {
   searchResult.innerHTML = "";
   resultHeader.innerHTML = "";
-  filterFirstLetter()});
+  weaknessesMenu.selectedIndex = "type";
+  typeMenu.selectedIndex = "type";
+  filterFirstLetter()
+});
 
 typeMenu.addEventListener("change", () => {
   searchResult.innerHTML = "";
   resultHeader.innerHTML = "";
+  selectedLetter.selectedIndex = "order";
+  weaknessesMenu.selectedIndex = "type";
   findType();
 });
 
 weaknessesMenu.addEventListener("change", () => {
   resultHeader.innerHTML = "";
   searchResult.innerHTML = "";
-  findWeakness()});
+  selectedLetter.selectedIndex = "order";
+  typeMenu.selectedIndex = "type";
+  findWeakness()
+});

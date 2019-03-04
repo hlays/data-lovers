@@ -2,112 +2,110 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="src/style.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width">
+    <title>Pokemon - Data Lovers</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="src/style.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
-    <header>
-      <nav class="topnav" id="myTopnav">
-        <a id="return-home" href="#">Home</a>
-        <a href="#">Dados</a>
-        <div class="dropdown">
-          <button class="dropdown-btn">Ordem Alfabética
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <select id="selected-letter" class="dropdown-content">
-            <option href="#">A-Z</option>
-            <option value="A" href="#">A</option>
-            <a href="#">B</a>
-            <a href="#">C</a>
-            <a href="#">D</a>
-            <a href="#">E</a>
-            <a href="#">F</a>
-            <a href="#">G</a>
-            <a href="#">H</a>
-            <a href="#">I</a>
-            <a href="#">J</a>
-            <a href="#">K</a>
-            <a href="#">L</a>
-            <a href="#">M</a>
-            <a href="#">N</a>
-            <a href="#">O</a>
-            <a href="#">P</a>
-            <a href="#">Q</a>
-            <a href="#">R</a>
-            <a href="#">S</a>
-            <a href="#">T</a>
-            <a href="#">U</a>
-            <a href="#">V</a>
-            <a href="#">X</a>
-            <a href="#">W</a>
-            <a href="#">Y</a>
-            <a href="#">Z</a>
-          </select>
-        </div>
-        <div class="dropdown">
-          <button id="type-btn" class="dropdown-btn">Tipo
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <select id="type-menu" class="dropdown-content">
-            <option value="normal">Selecione:</option>
-            <option value="normal">Normal</option>
-            <option value="fire">Fogo</option>
-            <option value="water">Água</option>
-            <option value="electric">Elétrico</option>
-            <option value="grass">Grama</option>
-            <option value="ice">Gelo</option>
-          </select>
-        </div>
-        <div class="dropdown">
-          <button class="dropdown-btn">Forte Contra
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">Normal</a>
-            <a href="#">Fogo</a>
-            <a href="#">Água</a>
-            <a href="#">Elétrico</a>
-            <a href="#">Grama</a>
-            <a href="#">Gelo</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button id="weaknesses-btn" class="dropdown-btn">Fraco Contra
-            <i class="fas fa-caret-down"></i>
-          </button>
-          <select id="weaknesses-menu" class="dropdown-content">
-            <option value="normal">Selecione:</option>
-            <option value="normal">Normal</option>
-            <option value="fire">Fogo</option>
-            <option value="water">Água</option>
-            <option value="electric">Elétrico</option>
-            <option value="grass">Grama</option>
-            <option value="ice">Gelo</option>
-          </select>
-        </div>
-        <div class="search-container">
-            <input type="text" placeholder="Search" name="search" id="src-bar">
-            <button><i class="fa fa-search" id="src-btn"></i></button>
-        </div>
-      </nav> 
-    </header>
     <main>
+      <div id="my-sidenav" class="sidenav">
+        <a href="#" id="return-home" class="home">Home<i class="fas fa-home"></i></a>
+        <a href="#" id="data" class="data">Dados<i class="fas fa-database"></i></a>
+      </div>
+      <section class="search">
+        <div class="container">
+          <form class="pokemon-search">
+            <h2>Pesquisa</h2>
+            <div class="row">
+              <div class="col-1-4">
+                <select id="selected-letter" class="alphabetical-order">
+                  <option value="order" selected>Ordem Alfabética</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="G">G</option>
+                  <option value="H">H</option>
+                  <option value="I">I</option>
+                  <option value="J">J</option>
+                  <option value="K">K</option>
+                  <option value="L">L</option>
+                  <option value="M">M</option>
+                  <option value="N">N</option>
+                  <option value="O">O</option>
+                  <option value="P">P</option>
+                  <option value="Q">Q</option>
+                  <option value="R">R</option>
+                  <option value="S">S</option>
+                  <option value="T">T</option>
+                  <option value="U">U</option>
+                  <option value="V">V</option>
+                  <option value="W">W</option>
+                  <option value="X">X</option>
+                  <option value="Y">Y</option>
+                  <option value="Z">Z</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <select id="type-menu" class="pokemon-type">
+                  <option value="type" selected>Tipo de Pokemon</option>
+                  <option value="normal">Normal</option>
+                  <option value="fire">Fogo</option>
+                  <option value="water">Água</option>
+                  <option value="eletric">Elétrico</option>
+                  <option value="grass">Grama</option>
+                  <option value="ice">Gelo</option>
+                  <option value="fighting">Lutador</option>
+                  <option value="poison">Venenoso</option>
+                  <option value="ground">Terra</option>
+                  <option value="flying">Voador</option>
+                  <option value="psychic">Psíquico</option>
+                  <option value="bug">Inseto</option>
+                  <option value="rock">Pedra</option>
+                  <option value="ghost">Fantasma</option>
+                  <option value="dragon">Dragão</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <select id="weaknesses-menu" class="pokemon-weakness">
+                  <option value="type" selected>Fraco Contra</option>
+                  <option value="normal">Normal</option>
+                  <option value="fire">Fogo</option>
+                  <option value="water">Água</option>
+                  <option value="eletric">Elétrico</option>
+                  <option value="grass">Grama</option>
+                  <option value="ice">Gelo</option>
+                  <option value="fighting">Lutador</option>
+                  <option value="poison">Venenoso</option>
+                  <option value="ground">Terra</option>
+                  <option value="flying">Voador</option>
+                  <option value="psychic">Psíquico</option>
+                  <option value="bug">Inseto</option>
+                  <option value="rock">Pedra</option>
+                  <option value="ghost">Fantasma</option>
+                  <option value="dragon">Dragão</option>
+                </select>
+              </div>
+              <div class="col-1-4">
+                <div class="search-container">
+                  <input id="src-bar" type="text" name="name-search" placeholder="Pesquisar por nome">
+                  <button id="src-btn"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
       <section>
         <h1 id="result-header"></h1>
         <article id="show-all-cards"></article>
       </section>
       <section id="search-result"></section>
     </main>
-
-
-
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
     <script src="src/data/pokemon/pokemon.js"></script>
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="src/data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
-    <!-- <script src="data.js"></script> -->
     <script src="src/main.js"></script>
   </body>
 </html>
