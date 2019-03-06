@@ -51,8 +51,10 @@ function donutChart() {
   ]);
 
   var options = {
-    title: 'Tipos de Pokemon em Kanto',
     pieHole: 0.4,
+    'width': 1000,
+    'height': 600,
+    backgroundColor: { fill:'#C6E9F0' },
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
@@ -80,7 +82,10 @@ function barChart() {
   ]);
 
   var options = {
-    title: "Tipo de fraqueza",
+    legend: 'none',
+    'width': 1000,
+    'height': 500,
+    backgroundColor: { fill:'#C6E9F0' },
   };
 
   var chart = new google.visualization.BarChart(document.getElementById('barchart'));
