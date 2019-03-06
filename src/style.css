@@ -4,9 +4,12 @@
 }
 
 body {
-  background: #ecf0f1;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  background-image: url(img/sky.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h1 {

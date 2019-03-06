@@ -10,16 +10,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   </head>
   <body>
-    <section>
-      <div id="my-sidenav" class="sidenav">
-        <a href="index.html" id="return-home" class="home">Home<i class="fas fa-home"></i></a>
-        <a href="#" id="data" class="data">Dados<i class="fas fa-database"></i></a>
-      </div>
-    </section>
-    <section class="chart-box">
-      <div id="donutchart" class="chart" style="width: 1000px; height: 600px;"></div>
-      <div id="barchart" class="chart" style="width: 1000px; height: 500px;"></div>
-    </section>
+    <header>
+      <section>
+        <div id="my-sidenav" class="sidenav">
+          <a href="index.html" id="return-home" class="home">Home<i class="fas fa-home"></i></a>
+          <a href="#" id="data" class="data">Dados<i class="fas fa-database"></i></a>
+        </div>
+      </section>
+    </header>
+    <main class="data-page">
+      <section class="chart-box">
+        <div id="donutchart" class="chart" style="width: 1000px; height: 600px;"></div>
+        <div id="barchart" class="chart" style="width: 1000px; height: 500px;"></div>
+      </section>
+    </main>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="src/data/pokemon/pokemon.js"></script>
     <script type="text/javascript" src="src/charts.js"></script>
