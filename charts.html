@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Pokemon - Data Lovers</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link href="src/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="src/img/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <div id="my-sidenav" class="sidenav">
+        <a href="index.html" id="return-home" class="home">Home<i class="fas fa-home"></i></a>
+        <a href="#" id="data" class="data">Dados<i class="fas fa-database"></i></a>
+      </div>
+    </section>
+    <section class="chart-box">
+      <div id="donutchart" class="chart" style="width: 1000px; height: 600px;"></div>
+      <div id="barchart" class="chart" style="width: 1000px; height: 500px;"></div>
+    </section>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="src/data/pokemon/pokemon.js"></script>
+    <script type="text/javascript" src="src/charts.js"></script>
+  </body>
+</html>

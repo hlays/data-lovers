@@ -14,7 +14,6 @@ const srcResult = document.querySelector("#search-result");
 
 let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
-
 function showAllCards() {
   resultHeader.textContent = "Todos os pokemons:";
 
