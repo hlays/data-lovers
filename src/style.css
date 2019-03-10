@@ -33,6 +33,7 @@ h2 {
   font-size: 15px;
   color: white;
   border-radius: 0 5px 5px 0;
+  z-index: 1;
 }
 
 .sidenav a:hover {
@@ -98,7 +99,7 @@ h2 {
 }
 
 .pokemon-search h1{
-  font-size: 70px;
+  font-size: 50px;
   color: #ffffff;
   font-family: "Lobster", cursive;
 }
@@ -159,6 +160,8 @@ select{
   justify-content: center;
   align-items: center;
 }
+
+
 
 .chart {
   border-radius: 10px;
