@@ -1,8 +1,6 @@
 # Pokemon - Data Lovers
 *Ana Paula Araújo & Lays Marie Hidani*
 
-[Link da aplicação](https://hlays.github.io/data-lovers/)
-
 ## Índice
 
 * [Definição do produto](#definição-do-produto)
@@ -14,6 +12,13 @@
 * [Testes de usabilidade](#testes-de-usabilidade)
 * [Evolução do desenvolvimento](#Evolução-do-desenvolvimento)
 * [Checklist](#checklist)
+
+[Link da aplicação](https://hlays.github.io/data-lovers/)
+
+![Home](src/img/home.png)
+![Dados](src/img/dados.png)
+
+
 
 ## Definição do produto
 
@@ -71,6 +76,10 @@ Novo menu, com foco nos filtros de pesquisa:
 Inclusão de filtro de pesquisa de A-Z e Z-A e algumas melhorias no design:
 
 ![Evolução do desenvolvimento 3](src/img/desenv-3.png)
+
+Layout final:
+
+![Home](src/img/home.png)
 
 
 ## Checklist

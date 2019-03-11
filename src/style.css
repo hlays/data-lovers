@@ -98,10 +98,14 @@ h2 {
   margin: 0 auto;
 }
 
-.pokemon-search h1{
+.lobster-font{
   font-size: 50px;
   color: #ffffff;
   font-family: "Lobster", cursive;
+}
+
+.black {
+  color: black;
 }
 
 .search-container{
