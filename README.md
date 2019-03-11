@@ -13,11 +13,14 @@
 * [Evolução do desenvolvimento](#Evolução-do-desenvolvimento)
 * [Checklist](#checklist)
 
+
 [Link da aplicação](https://hlays.github.io/data-lovers/)
 
+**Home:**
 ![Home](src/img/home.png)
-![Dados](src/img/dados.png)
 
+**Dados:**
+![Dados](src/img/dados.png)
 
 
 ## Definição do produto
@@ -59,8 +62,8 @@ O protótipo final completo pode ser conferido neste link:
 
 ## Testes de usabilidade
 Foram realizados testes de usabilidade, onde foram detectados alguns problemas que foram corrigidos para a versão final da aplicação:
-* **Acesso aos filtros**: à princípio a aplicação apresentava uma tela inicial e menu para acessar os filtros. Foi identificado que seria mais eficiente se os filtros já estivessem disponíveis na primeira tela.
-* **Elementos desnecessários na primeira tela**: todos os elementos desnecessários foram retirados, deixando na primeira tela, além dos filtros de pesquisa, já listados todos os 151 pokémons de Kanto.
+* **Acesso aos filtros**: à princípio a aplicação apresentava uma tela inicial e menu para acessar os filtros. Foi identificado que seria mais eficiente se os filtros já estivessem disponíveis na primeira tela, pois são a principal tarefa do usuário ao utilizar a aplicação.
+* **Elementos desnecessários na primeira tela**: todos os elementos desnecessários foram retirados, deixando na primeira tela, os filtros de pesquisa e já listados todos os 151 pokémons de Kanto.
 * **Pokemons - apenas imagens**: a ideia inicial seria exibir, após a pesquisa, as imagens dos pokemons correspondentes e ao clicar em cada imagem seria redirecionado à um card com informações sobre o pokemon. No entanto, verificou-se ser mais eficiente e claro, exibir os cards já com informações quando realizada a pesquisa.
 
 ## Evolução do desenvolvimento
