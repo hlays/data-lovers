@@ -40,7 +40,7 @@ function showAllCards() {
   })
 }
 
-function findsort() {
+function findSort() {
   let sortPokemons = sortMenu.value;
 
   if (sortPokemons === "az") {
