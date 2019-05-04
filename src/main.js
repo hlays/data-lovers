@@ -4,7 +4,6 @@ const letterMenu = document.querySelector("#selected-letter");
 const typeMenu = document.querySelector("#type-menu");
 const weaknessesMenu = document.querySelector("#weaknesses-menu");
 
-
 const srcBar = document.querySelector("#src-bar");
 const srcBtn = document.querySelector("#src-btn");
 
@@ -17,7 +16,7 @@ let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 function showAllCards() {
   resultHeader.textContent = "Todos os pokemons:";
 
-  pokemons.forEach(function(pokemon) {
+  pokemons.forEach(function (pokemon) {
     let newArticle = document.createElement("article");
 
     newArticle.innerHTML = `
@@ -64,11 +63,11 @@ function sortAZ() {
     }
     return 0;
   });
-  
-  namesAZ.forEach(function(pokemon) {
+
+  namesAZ.forEach(function (pokemon) {
     let newArticle = document.createElement("article");
 
-      newArticle.innerHTML =
+    newArticle.innerHTML =
       `<div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
         <h3>${pokemon["name"]}</h3>
@@ -84,7 +83,7 @@ function sortAZ() {
         </ul>
       </div>`
     srcResult.appendChild(newArticle);
-  })  
+  })
   let total = 151;
   let newH = document.createElement("h1");
   newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons.`
@@ -105,11 +104,11 @@ function sortZA() {
     }
     return 0;
   });
-  
-  namesAZ.forEach(function(pokemon) {
+
+  namesAZ.forEach(function (pokemon) {
     let newArticle = document.createElement("article");
 
-      newArticle.innerHTML =
+    newArticle.innerHTML =
       `<div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
         <h3>${pokemon["name"]}</h3>
@@ -125,7 +124,8 @@ function sortZA() {
         </ul>
       </div>`
     srcResult.appendChild(newArticle);
-  })  
+  })
+
   let total = 151;
   let newH = document.createElement("h1");
   newH.innerHTML = `Resultado da Pesquisa: ${total} pokemons.`
@@ -135,7 +135,7 @@ function sortZA() {
 function filterFirstLetter() {
   let getFirstLetter = letterMenu.value;
   let totalFirstLetter = [];
-  
+
   resultHeader.textContent = `Pokemons que começam com a letra ${getFirstLetter}`;
 
   pokemons.forEach(function (pokemon) {
@@ -145,7 +145,7 @@ function filterFirstLetter() {
       let newArticle = document.createElement("article");
 
       newArticle.innerHTML =
-      `
+        `
       <div class="pokemon-card">
         <img src="${pokemon["img"]}"></img>
         <h3>${pokemon["name"]}</h3>
@@ -258,7 +258,7 @@ function findName() {
 
   if (match.length !== 0) {
     for (item of match) {
-      pokemons.forEach(function(pokemon) {
+      pokemons.forEach(function (pokemon) {
         if (pokemon.name === item) {
           let newArticle = document.createElement("article");
 
@@ -276,7 +276,7 @@ function findName() {
               <li>Spawns time: ${pokemon["spawn_time"]}</li>
               <li>Fraquezas: ${pokemon["weaknesses"]}</li>
             </ul>
-          </div>` 
+          </div>`
           srcResult.appendChild(newArticle);
         }
       })
