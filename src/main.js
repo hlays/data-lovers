@@ -13,13 +13,10 @@ const srcResult = document.querySelector('#search-result');
 
 const pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
-function showAllCards() {
-  resultHeader.textContent = 'Todos os pokemons:';
+function postCards(pokemon) {
+  const newArticle = document.createElement('article');
 
-  pokemons.forEach(function (pokemon) {
-    const newArticle = document.createElement('article');
-
-    newArticle.innerHTML = `
+  newArticle.innerHTML = `
     <div class="pokemon-card">
       <img src="${pokemon['img']}"></img>
       <h3>${pokemon['name']}</h3>
@@ -35,7 +32,14 @@ function showAllCards() {
       </ul>
     </div>`;
 
-    srcResult.appendChild(newArticle);
+  srcResult.appendChild(newArticle);
+}
+
+function showAllCards() {
+  resultHeader.textContent = 'Todos os pokemons:';
+
+  pokemons.forEach(function (pokemon) {
+    postCards(pokemon);
   });
 }
 
@@ -65,24 +69,7 @@ function sortAZ() {
   });
 
   namesAZ.forEach(function (pokemon) {
-    const newArticle = document.createElement('article');
-
-    newArticle.innerHTML =
-      `<div class="pokemon-card">
-        <img src="${pokemon['img']}"></img>
-        <h3>${pokemon['name']}</h3>
-        <ul class="info-list">
-          <li>Tipo: ${pokemon['type']}</li>
-          <li>Altura: ${pokemon['height']}</li>
-          <li>Peso: ${pokemon['weight']}</li>
-          <li>Egg: ${pokemon['egg']}</li>
-          <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-          <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-          <li>Spawns time: ${pokemon['spawn_time']}</li>
-          <li>Fraquezas: ${pokemon['weaknesses']}</li>
-        </ul>
-      </div>`;
-    srcResult.appendChild(newArticle);
+    postCards(pokemon);
   });
   const total = 151;
   const newH = document.createElement('h1');
@@ -106,24 +93,7 @@ function sortZA() {
   });
 
   namesAZ.forEach(function (pokemon) {
-    const newArticle = document.createElement('article');
-
-    newArticle.innerHTML =
-      `<div class="pokemon-card">
-        <img src="${pokemon['img']}"></img>
-        <h3>${pokemon['name']}</h3>
-        <ul class="info-list">
-          <li>Tipo: ${pokemon['type']}</li>
-          <li>Altura: ${pokemon['height']}</li>
-          <li>Peso: ${pokemon['weight']}</li>
-          <li>Egg: ${pokemon['egg']}</li>
-          <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-          <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-          <li>Spawns time: ${pokemon['spawn_time']}</li>
-          <li>Fraquezas: ${pokemon['weaknesses']}</li>
-        </ul>
-      </div>`;
-    srcResult.appendChild(newArticle);
+    postCards(pokemon);
   });
 
   const total = 151;
@@ -141,26 +111,7 @@ function filterFirstLetter() {
   pokemons.forEach(function (pokemon) {
     if (pokemon.name[0] === getFirstLetter) {
       totalFirstLetter.push(pokemon.name);
-
-      const newArticle = document.createElement('article');
-
-      newArticle.innerHTML =
-        `
-      <div class="pokemon-card">
-        <img src="${pokemon['img']}"></img>
-        <h3>${pokemon['name']}</h3>
-        <ul class="info-list">
-          <li>Tipo: ${pokemon['type']}</li>
-          <li>Altura: ${pokemon['height']}</li>
-          <li>Peso: ${pokemon['weight']}</li>
-          <li>Egg: ${pokemon['egg']}</li>
-          <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-          <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-          <li>Spawns time: ${pokemon['spawn_time']}</li>
-          <li>Fraquezas: ${pokemon['weaknesses']}</li>
-        </ul>
-      </div>`;
-      srcResult.appendChild(newArticle);
+      postCards(pokemon);
     }
   });
 
@@ -180,26 +131,7 @@ function findType() {
     pokemon.type.forEach(function (type) {
       if (type === requiredType) {
         totalType++;
-
-        const newArticle = document.createElement('article');
-
-        newArticle.innerHTML =
-          `
-          <div class="pokemon-card">
-            <img src="${pokemon['img']}"></img>
-            <h3>${pokemon['name']}</h3>
-            <ul class="info-list">
-              <li>Tipo: ${pokemon['type']}</li>
-              <li>Altura: ${pokemon['height']}</li>
-              <li>Peso: ${pokemon['weight']}</li>
-              <li>Egg: ${pokemon['egg']}</li>
-              <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-              <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-              <li>Spawns time: ${pokemon['spawn_time']}</li>
-              <li>Fraquezas: ${pokemon['weaknesses']}</li>
-            </ul>
-          </div>`;
-        srcResult.appendChild(newArticle);
+        postCards(pokemon);
       }
     });
   });
@@ -220,25 +152,7 @@ function findWeakness() {
     pokemon.weaknesses.forEach(function (weaknesses) {
       if (weaknesses === requiredWeakness) {
         totalWeaknesses++;
-
-        const newArticle = document.createElement('article');
-
-        newArticle.innerHTML = `  
-        <div class="pokemon-card">
-          <img src="${pokemon['img']}"></img>
-          <h3>${pokemon['name']}</h3>
-          <ul class="info-list">
-            <li>Tipo: ${pokemon['type']}</li>
-            <li>Altura: ${pokemon['height']}</li>
-            <li>Peso: ${pokemon['weight']}</li>
-            <li>Egg: ${pokemon['egg']}</li>
-            <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-            <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-            <li>Spawns time: ${pokemon['spawn_time']}</li>
-            <li>Fraquezas: ${pokemon['weaknesses']}</li>
-          </ul>
-        </div>`;
-        srcResult.appendChild(newArticle);
+        postCards(pokemon);
       }
     });
   });
@@ -260,24 +174,7 @@ function findName() {
     for (const item of match) {
       pokemons.forEach(function (pokemon) {
         if (pokemon.name === item) {
-          const newArticle = document.createElement('article');
-
-          newArticle.innerHTML = `
-          <div class="pokemon-card">
-            <img src="${pokemon['img']}"></img>
-            <h3>${pokemon['name']}</h3>
-            <ul class="info-list">
-              <li>Tipo: ${pokemon['type']}</li>
-              <li>Altura: ${pokemon['height']}</li>
-              <li>Peso: ${pokemon['weight']}</li>
-              <li>Egg: ${pokemon['egg']}</li>
-              <li>Spaw chance: ${pokemon['spawn_chance']}</li>
-              <li>AVG Spawns: ${pokemon['avg_spawns']}</li>
-              <li>Spawns time: ${pokemon['spawn_time']}</li>
-              <li>Fraquezas: ${pokemon['weaknesses']}</li>
-            </ul>
-          </div>`;
-          srcResult.appendChild(newArticle);
+          postCards(pokemon);
         }
       });
     }
