@@ -4,12 +4,12 @@ google.charts.setOnLoadCallback(donutChart);
 google.charts.load('current', { packages: ['corechart', 'bar'] });
 google.charts.setOnLoadCallback(barChart);
 
-let pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
+const pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
 function typeCount(requiredType) {
   let totalTypeCount = 0;
-  pokemons.forEach(function(pokemon) {
-    pokemon.type.forEach(function(type) {
+  pokemons.forEach(function (pokemon) {
+    pokemon.type.forEach(function (type) {
       if (type === requiredType) {
         totalTypeCount++;
       }
@@ -20,8 +20,8 @@ function typeCount(requiredType) {
 
 function weaknessesCount(requiredWeaknesses) {
   let totalWeaknesses = 0;
-  pokemons.forEach(function(pokemon) {
-    pokemon.weaknesses.forEach(function(weaknesses) {
+  pokemons.forEach(function (pokemon) {
+    pokemon.weaknesses.forEach(function (weaknesses) {
       if (weaknesses === requiredWeaknesses) {
         totalWeaknesses++;
       }
