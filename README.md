@@ -14,7 +14,7 @@
 * [Checklist](#checklist)
 
 
-[Link da aplicação](https://hlays.github.io/data-lovers/)
+[Link da aplicação](https://layshidani.github.io/data-lovers/)
 
 **Home:**
 ![Home](src/img/home.png)
