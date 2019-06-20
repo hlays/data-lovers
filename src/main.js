@@ -13,7 +13,7 @@ const srcResult = document.querySelector('#search-result');
 
 const pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
-function postCards(pokemon) {
+const postCards = (pokemon) => {
   const newArticle = document.createElement('article');
 
   newArticle.innerHTML = `
@@ -35,15 +35,15 @@ function postCards(pokemon) {
   srcResult.appendChild(newArticle);
 }
 
-function showAllCards() {
+const showAllCards = () => {
   resultHeader.textContent = 'Todos os pokemons:';
 
-  pokemons.forEach(function (pokemon) {
+  pokemons.forEach((pokemon) => {
     postCards(pokemon);
   });
 }
 
-function findSort() {
+const findSort = () => {
   const sortPokemons = sortMenu.value;
 
   if (sortPokemons === 'az') {
@@ -53,10 +53,10 @@ function findSort() {
   }
 }
 
-function sortAZ() {
+const sortAZ = () => {
   resultHeader.textContent = 'Pokemons ordenados de A a Z';
 
-  const namesAZ = [...pokemons].sort(function (pokemonA, pokemonB) {
+  const namesAZ = [...pokemons].sort((pokemonA, pokemonB) => {
     const nameA = pokemonA.name.toUpperCase();
     const nameB = pokemonB.name.toUpperCase();
     if (nameA < nameB) {
@@ -68,7 +68,7 @@ function sortAZ() {
     return 0;
   });
 
-  namesAZ.forEach(function (pokemon) {
+  namesAZ.forEach((pokemon) => {
     postCards(pokemon);
   });
   const total = 151;
@@ -77,10 +77,10 @@ function sortAZ() {
   resultInfo.appendChild(newH);
 }
 
-function sortZA() {
+const sortZA = () => {
   resultHeader.textContent = 'Pokemons ordenados de Z a A';
 
-  const namesAZ = [...pokemons].sort(function (pokemonA, pokemonB) {
+  const namesAZ = [...pokemons].sort((pokemonA, pokemonB) => {
     const nameA = pokemonA.name.toUpperCase();
     const nameB = pokemonB.name.toUpperCase();
     if (nameA > nameB) {
@@ -92,7 +92,7 @@ function sortZA() {
     return 0;
   });
 
-  namesAZ.forEach(function (pokemon) {
+  namesAZ.forEach((pokemon) => {
     postCards(pokemon);
   });
 
@@ -102,13 +102,13 @@ function sortZA() {
   resultInfo.appendChild(newH);
 }
 
-function filterFirstLetter() {
+const filterFirstLetter = () => {
   const getFirstLetter = letterMenu.value;
   const totalFirstLetter = [];
 
   resultHeader.textContent = `Pokemons que começam com a letra ${getFirstLetter}`;
 
-  pokemons.forEach(function (pokemon) {
+  pokemons.forEach((pokemon) => {
     if (pokemon.name[0] === getFirstLetter) {
       totalFirstLetter.push(pokemon.name);
       postCards(pokemon);
@@ -121,14 +121,14 @@ function filterFirstLetter() {
   resultInfo.appendChild(newH);
 }
 
-function findType() {
+const findType = () => {
   const requiredType = typeMenu.value;
   let totalType = 0;
 
   resultHeader.textContent = `Pokemons do tipo: ${requiredType}`;
 
-  pokemons.forEach(function (pokemon) {
-    pokemon.type.forEach(function (type) {
+  pokemons.forEach((pokemon) => {
+    pokemon.type.forEach((type) => {
       if (type === requiredType) {
         totalType++;
         postCards(pokemon);
@@ -142,14 +142,14 @@ function findType() {
   resultInfo.appendChild(newH);
 }
 
-function findWeakness() {
+const findWeakness = () => {
   const requiredWeakness = weaknessesMenu.value;
   let totalWeaknesses = 0;
 
   resultHeader.textContent = `Pokemons com fraqueza: ${requiredWeakness}`;
 
-  pokemons.forEach(function (pokemon) {
-    pokemon.weaknesses.forEach(function (weaknesses) {
+  pokemons.forEach((pokemon) => {
+    pokemon.weaknesses.forEach((weaknesses) => {
       if (weaknesses === requiredWeakness) {
         totalWeaknesses++;
         postCards(pokemon);
@@ -162,7 +162,7 @@ function findWeakness() {
   resultInfo.appendChild(newH);
 }
 
-function findName() {
+const findName = () => {
   const requiredName = srcBar.value;
 
   resultHeader.textContent = `Pokemons com o nome ${requiredName.toUpperCase()}`;
@@ -171,8 +171,8 @@ function findName() {
   const match = names.filter((name) => name.toUpperCase() === requiredName.toUpperCase());
 
   if (match.length !== 0) {
-    for (const item of match) {
-      pokemons.forEach(function (pokemon) {
+    for (let item of match) {
+      pokemons.forEach((pokemon) => {
         if (pokemon.name === item) {
           postCards(pokemon);
         }

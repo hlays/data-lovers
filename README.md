@@ -1,8 +1,13 @@
 # Pokemon - Data Lovers
+![JavaScript](https://img.shields.io/badge/-JavaScript-%23F7DF1E.svg)
+![SASS](https://img.shields.io/badge/-sass-%23D75893.svg)
 *Ana Paula Araújo & Lays Marie Hidani*
 
-## Índice
+[Link da aplicação](https://layshidani.github.io/data-lovers/)
 
+---
+
+## Índice
 * [Definição do produto](#definição-do-produto)
 * [Personas](#personas)
 * [Planejamento e design sprint](#Planejamento-e-design-sprint)
@@ -12,9 +17,6 @@
 * [Testes de usabilidade](#testes-de-usabilidade)
 * [Evolução do desenvolvimento](#Evolução-do-desenvolvimento)
 * [Checklist](#checklist)
-
-
-[Link da aplicação](https://hlays.github.io/data-lovers/)
 
 **Home:**
 ![Home](src/img/home.png)

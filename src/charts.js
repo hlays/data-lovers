@@ -6,10 +6,10 @@ google.charts.setOnLoadCallback(barChart);
 
 const pokemons = POKEMON.pokemon.map((pokemon) => pokemon);
 
-function typeCount(requiredType) {
+const typeCount = (requiredType) => {
   let totalTypeCount = 0;
-  pokemons.forEach(function (pokemon) {
-    pokemon.type.forEach(function (type) {
+  pokemons.forEach((pokemon) => {
+    pokemon.type.forEach((type) => {
       if (type === requiredType) {
         totalTypeCount++;
       }
@@ -18,10 +18,10 @@ function typeCount(requiredType) {
   return totalTypeCount;
 }
 
-function weaknessesCount(requiredWeaknesses) {
+const weaknessesCount = (requiredWeaknesses) => {
   let totalWeaknesses = 0;
-  pokemons.forEach(function (pokemon) {
-    pokemon.weaknesses.forEach(function (weaknesses) {
+  pokemons.forEach((pokemon) => {
+    pokemon.weaknesses.forEach((weaknesses) => {
       if (weaknesses === requiredWeaknesses) {
         totalWeaknesses++;
       }
@@ -30,7 +30,7 @@ function weaknessesCount(requiredWeaknesses) {
   return totalWeaknesses;
 }
 
-function donutChart() {
+const donutChart = () => {
   const data = google.visualization.arrayToDataTable([
     ['Task', 'Hours per Day'],
     ['Normal', typeCount('Normal')],
@@ -61,7 +61,7 @@ function donutChart() {
   chart.draw(data, options);
 }
 
-function barChart() {
+const barChart = () => {
   const data = google.visualization.arrayToDataTable([
     ['Tipo', 'Quantidade', { role: 'style' }],
     ['Normal', weaknessesCount('Normal'), '#407F7F'],
