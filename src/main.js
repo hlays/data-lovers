@@ -46,11 +46,8 @@ const showAllCards = () => {
 const findSort = () => {
   const sortPokemons = sortMenu.value;
 
-  if (sortPokemons === 'az') {
-    sortAZ();
-  } else {
-    sortZA();
-  }
+  (sortPokemons === 'az') ? sortAZ() : sortZA();
+
 }
 
 const sortAZ = () => {
@@ -59,13 +56,9 @@ const sortAZ = () => {
   const namesAZ = [...pokemons].sort((pokemonA, pokemonB) => {
     const nameA = pokemonA.name.toUpperCase();
     const nameB = pokemonB.name.toUpperCase();
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
+   
+    return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+
   });
 
   namesAZ.forEach((pokemon) => {
@@ -80,19 +73,15 @@ const sortAZ = () => {
 const sortZA = () => {
   resultHeader.textContent = 'Pokemons ordenados de Z a A';
 
-  const namesAZ = [...pokemons].sort((pokemonA, pokemonB) => {
+  const namesZA = [...pokemons].sort((pokemonA, pokemonB) => {
     const nameA = pokemonA.name.toUpperCase();
     const nameB = pokemonB.name.toUpperCase();
-    if (nameA > nameB) {
-      return -1;
-    }
-    if (nameA < nameB) {
-      return 1;
-    }
-    return 0;
+
+    return (nameA > nameB) ? -1 : (nameA < nameB) ? 1 : 0;
+
   });
 
-  namesAZ.forEach((pokemon) => {
+  namesZA.forEach((pokemon) => {
     postCards(pokemon);
   });
 
