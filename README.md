@@ -1,7 +1,8 @@
 # Pokemon - Data Lovers
+*Ana Paula Araújo & Lays Marie Hidani*
+
 ![JavaScript](https://img.shields.io/badge/-JavaScript-%23F7DF1E.svg)
 ![SASS](https://img.shields.io/badge/-sass-%23D75893.svg)
-*Ana Paula Araújo & Lays Marie Hidani*
 
 [Link da aplicação](https://layshidani.github.io/data-lovers/)
 
